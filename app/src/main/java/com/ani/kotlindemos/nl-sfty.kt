@@ -16,4 +16,8 @@ fun main() {
 
     var ln2 = nullable?.length ?: -1 // Elvis operator
     println(ln2)
+
+        // ?: Elvis
+        // !! Null Asserted -> NPE
+       //  ?  Null Safety
 }
