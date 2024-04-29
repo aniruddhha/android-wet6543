@@ -9,6 +9,7 @@ class DbConfig( // primary
     var dbUrl: String
         get() = this.url
         set(value) { this.url = value  }
+
 }
 
 class NwConfig {
