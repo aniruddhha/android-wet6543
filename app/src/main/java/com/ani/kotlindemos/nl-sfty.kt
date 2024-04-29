@@ -11,4 +11,9 @@ fun main() {
     var ln = nullable?.length
 //    var ln = nullable!!.length
 
+    var ln1 = if (nullable != null) nullable.length else -1
+    println(ln1)
+
+    var ln2 = nullable?.length ?: -1 // Elvis operator
+    println(ln2)
 }
