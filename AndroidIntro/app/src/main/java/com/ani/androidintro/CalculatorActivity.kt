@@ -32,17 +32,17 @@ class CalculatorActivity : AppCompatActivity() {
 
         val btSub = findViewById<Button>(R.id.button6)
         btSub.setOnClickListener {
-            // @Todo:// home work
+            // @Todo: home work
         }
 
         val btMul = findViewById<Button>(R.id.button8)
         btMul.setOnClickListener {
-            // @Todo:// home work
+            // @Todo: home work
         }
 
         val btDv = findViewById<Button>(R.id.button7)
         btDv.setOnClickListener {
-            // @Todo:// home work
+            // @Todo: home work
         }
     }
 }
