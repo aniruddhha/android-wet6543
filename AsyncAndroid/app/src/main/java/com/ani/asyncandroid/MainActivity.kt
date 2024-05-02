@@ -21,14 +21,12 @@ class MainActivity : AppCompatActivity() {
 
         val btn = findViewById<Button>(R.id.button)
         btn.setOnClickListener {
-
             Thread {
                 for (i in 0..10) {
                     Thread.sleep(2000)
 //                    txt.text = "$i"
                 }
             }.start()
-
         }
     }
 
@@ -37,12 +35,16 @@ class MainActivity : AppCompatActivity() {
         val btn = findViewById<Button>(R.id.button)
 
         btn.setOnClickListener {
-            scope.launch {
-                for (i in 1..10) {
-                    delay(2000)
-                    txt.text = "$i"
-                }
+            val job: Job = scope.launch {
+               execute(txt)
             }
+        }
+    }
+
+    suspend fun execute(txt :TextView) {
+        for (i in 1..10) {
+            delay(2000)
+            txt.text = "$i"
         }
     }
 
