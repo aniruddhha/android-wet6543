@@ -28,10 +28,15 @@ class MainActivity : AppCompatActivity() {
         crud = retrofit.create(CRUDApp::class.java)
 
         val etCnt = findViewById<EditText>(R.id.editTextText)
+        val etId = findViewById<EditText>(R.id.editTextText2)
 
         val btn = findViewById<Button>(R.id.button)
         btn.setOnClickListener {
-            createApiCall(etCnt.text.toString().toInt())
+//            createApiCall(etCnt.text.toString().toInt())
+            updateApiCall(
+                cnt = etCnt.text.toString().toInt(),
+                id = etId.text.toString()
+            )
         }
 
         showApiCall()
@@ -57,7 +62,18 @@ class MainActivity : AppCompatActivity() {
                 cnt = cnt
             )
 
-            val response = crud.create(app)
+            val response = crud.createApp(app)
+            Log.i("@HttpApp", response.body() ?: "Problem in parsing body")
+        }
+    }
+
+    private fun updateApiCall(cnt : Int, id: String) {
+        mainScope.launch {
+            val app = App(
+                id = id,
+                cnt = cnt
+            )
+            val response = crud.updateApp(app)
             Log.i("@HttpApp", response.body() ?: "Problem in parsing body")
         }
     }
