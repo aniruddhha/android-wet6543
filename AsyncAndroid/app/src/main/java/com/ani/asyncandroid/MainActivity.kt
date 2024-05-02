@@ -5,8 +5,10 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -37,6 +39,14 @@ class MainActivity : AppCompatActivity() {
         btn.setOnClickListener {
             val job: Job = scope.launch {
                execute(txt)
+            }
+
+            val t1: Job = scope.launch {
+
+                val t2: Deferred<Int> = scope.async {
+                    return@async 3
+                }
+                t2.await()
             }
         }
     }
