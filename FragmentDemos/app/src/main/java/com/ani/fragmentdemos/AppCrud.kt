@@ -8,5 +8,5 @@ data class App (
 )
 interface AppCrud {
     @GET("/simple/app")
-    fun apps() : Response<List<App>>
+    suspend fun apps() : Response<List<App>>
 }

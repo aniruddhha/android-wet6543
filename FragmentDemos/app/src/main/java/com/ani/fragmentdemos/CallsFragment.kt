@@ -44,7 +44,8 @@ class CallsFragment : Fragment() {
             val apps: List<App>? = crud.apps().body()
 
             apps?.let {
-                val adapter = AppsAdapter(arrayListOf())
+                println(apps)
+                val adapter = AppsAdapter(apps)
                 recWeb.adapter = adapter
             }
         }
