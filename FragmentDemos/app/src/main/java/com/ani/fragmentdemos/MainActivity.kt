@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
             val txn = supportFragmentManager.beginTransaction()
             txn.replace(R.id.main, MessagesFragment())
             txn.commit()
+
         }
 
         findViewById<Button>(R.id.button3).setOnClickListener {
