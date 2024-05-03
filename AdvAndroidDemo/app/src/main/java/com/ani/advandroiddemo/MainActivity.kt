@@ -1,6 +1,7 @@
 package com.ani.advandroiddemo
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -16,8 +17,12 @@ class MainActivity : AppCompatActivity() {
     private fun showListView() {
         val dataSource = arrayListOf("Android", "iOS", "Symbian", "Windows", "Palm")
         val adapter = CustomAdapter(dataSource)
+        adapter.setOnItemClickListener { position ->
+            Log.i("@RecView", "Position $position")
+        }
 
         val recView = findViewById<RecyclerView>(R.id.recVw)
+//        recView.setOnClickListener {  } incorrect, it will provide click listener to whole rv
         recView.layoutManager = LinearLayoutManager(this)
         recView.addItemDecoration(DividerItemDecoration(recView.context, DividerItemDecoration.VERTICAL))
         recView.adapter = adapter
@@ -46,7 +51,6 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_main)
 
-        showGridView()
-
+        showListView()
     }
 }
