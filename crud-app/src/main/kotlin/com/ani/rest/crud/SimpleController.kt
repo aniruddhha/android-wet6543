@@ -20,7 +20,29 @@ class SimpleController {
 
     private val app : App = App(id = "00000", cnt = 0)
 
-    private val apps: ArrayList<App> = ArrayList<App>()
+    private val apps: ArrayList<App> = arrayListOf(
+        App(id="#0003", 25),
+        App(id="#0004", 35),
+        App(id="#0005", 20),
+        App(id="#0006", 50),
+        App(id="#0007", 45),
+        App(id="#0008", 15),
+        App(id="#0009", 28),
+        App(id="#0010", 32),
+        App(id="#0011", 38),
+        App(id="#0012", 42),
+        App(id="#0013", 27),
+        App(id="#0014", 39),
+        App(id="#0015", 48),
+        App(id="#0016", 21),
+        App(id="#0017", 36),
+        App(id="#0018", 29),
+        App(id="#0019", 31),
+        App(id="#0020", 33),
+        App(id="#0021", 37),
+        App(id="#0022", 43)
+    )
+
 
     @GetMapping
     fun show(): ResponseEntity<App> {
