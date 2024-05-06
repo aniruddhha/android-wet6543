@@ -10,3 +10,5 @@ interface AppCrud {
     @GET("/simple/app")
     suspend fun apps() : Response<List<App>>
 }
+
+fun abc() : String? = null
