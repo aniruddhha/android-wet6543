@@ -38,12 +38,9 @@ class UsersFragment : Fragment() {
 
         val adapter = UserAdapter(users)
         adapter.setOnDeleteListener {
-//            Toast.makeText(requireActivity(), "$it", Toast.LENGTH_LONG).show()
-
             val pos = users.indexOf(it)
-            Log.i("@Rec", users.toString())
-            adapter.notifyDataSetChanged()
-//            adapter.notifyItemRemoved(pos)
+            adapter.notifyItemRemoved(pos)
+            adapter.notifyItemRangeChanged(pos, users.size)
             users.remove(it)
         }
 
