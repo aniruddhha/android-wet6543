@@ -24,7 +24,7 @@ class CallsFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val app: MyApp = activity?.application as MyApp
+        val app: MyApp = requireActivity().application as MyApp
 
 //        parentActivity = activity as MainActivity
 
