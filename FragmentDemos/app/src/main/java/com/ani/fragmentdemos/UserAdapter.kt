@@ -13,7 +13,7 @@ data class User(
     val usNm: String
 )
 
-typealias OnDeleteListener = (pos : Int) -> Unit
+typealias OnDeleteListener = (user: User) -> Unit
 
 class UserAdapter(
     val users : List<User>
@@ -42,8 +42,6 @@ class UserAdapter(
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
         holder.txtUsNm.text = users.get(position).usNm
         holder.txtId.text = "${users[position].id}"
-        holder.imgDel.setOnClickListener { deleteListener(position) }
+        holder.imgDel.setOnClickListener { deleteListener(users[position]) }
     }
-
-
 }

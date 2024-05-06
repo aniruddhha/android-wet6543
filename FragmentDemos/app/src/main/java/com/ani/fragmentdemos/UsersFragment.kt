@@ -1,6 +1,7 @@
 package com.ani.fragmentdemos
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -22,7 +23,7 @@ class UsersFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val users = listOf(
+        val users: ArrayList<User> = arrayListOf(
             User(1, "abc"),
             User(2, "pqr"),
             User(3, "lmn"),
@@ -37,8 +38,13 @@ class UsersFragment : Fragment() {
 
         val adapter = UserAdapter(users)
         adapter.setOnDeleteListener {
-            Toast.makeText(requireActivity(), "$it", Toast.LENGTH_LONG).show()
+//            Toast.makeText(requireActivity(), "$it", Toast.LENGTH_LONG).show()
 
+            val pos = users.indexOf(it)
+            Log.i("@Rec", users.toString())
+            adapter.notifyDataSetChanged()
+//            adapter.notifyItemRemoved(pos)
+            users.remove(it)
         }
 
         val recUsrs =  view.findViewById<RecyclerView>(R.id.recUsr)
