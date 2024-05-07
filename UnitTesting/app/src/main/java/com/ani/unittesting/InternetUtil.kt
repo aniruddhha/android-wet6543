@@ -8,5 +8,7 @@ fun isWifiAvailable(ssid : String?) : Boolean {
 
     if(ssid.isBlank()) return false
 
+    // here your actual code for wifi to be written
+
     return true
 }
