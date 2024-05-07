@@ -7,6 +7,7 @@ android {
     namespace = "com.ani.unittesting"
     compileSdk = 34
 
+
     defaultConfig {
         applicationId = "com.ani.unittesting"
         minSdk = 24
