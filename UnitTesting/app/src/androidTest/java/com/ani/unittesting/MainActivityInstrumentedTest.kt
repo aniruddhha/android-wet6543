@@ -49,4 +49,102 @@ class MainActivityInstrumentedTest  {
             )
         )
     }
+
+    @Test
+    fun checkIfNoText() {
+        onView(
+            withId(R.id.editTextText)
+        ).perform(
+            typeText("")
+        )
+
+        //click the button okay
+        onView(
+            withId(R.id.button)
+        ).perform(
+            click()
+        )
+
+        onView(
+            withId(R.id.editTextText)
+        ).check(
+            matches(
+                withText("")
+            )
+        )
+
+    }
+
+    @Test
+    fun checkIfNumbersEntered() {
+        onView(
+            withId(R.id.editTextText)
+        ).perform(
+            typeText("123")
+        )
+
+        //click the button okay
+        onView(
+            withId(R.id.button)
+        ).perform(
+            click()
+        )
+
+        onView(
+            withId(R.id.editTextText)
+        ).check(
+            matches(
+                withText("123")
+            )
+        )
+    }
+
+    @Test
+    fun checkIfCapsTextEntered() {
+        onView(
+            withId(R.id.editTextText)
+        ).perform(
+            typeText("AAA")
+        )
+
+        //click the button okay
+        onView(
+            withId(R.id.button)
+        ).perform(
+            click()
+        )
+
+        onView(
+            withId(R.id.editTextText)
+        ).check(
+            matches(
+                withText("AAA")
+            )
+        )
+    }
+
+    @Test
+    fun checkIfCombinationEntered() {
+        onView(
+            withId(R.id.editTextText)
+        ).perform(
+            typeText("a11B45*")
+        )
+
+        //click the button okay
+        onView(
+            withId(R.id.button)
+        ).perform(
+            click()
+        )
+
+        onView(
+            withId(R.id.editTextText)
+        ).check(
+            matches(
+                withText("A11B45*")
+            )
+        )
+
+    }
 }
