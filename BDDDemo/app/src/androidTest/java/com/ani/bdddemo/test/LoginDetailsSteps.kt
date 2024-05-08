@@ -1,37 +1,34 @@
-package com.ani.bdddemo
+package com.ani.bdddemo.test
 
 import android.content.Intent
-import androidx.test.core.app.ActivityScenario
-import androidx.test.ext.junit.runners.AndroidJUnit4
-import org.junit.runner.RunWith
 
 import androidx.test.espresso.Espresso.closeSoftKeyboard
 import androidx.test.espresso.Espresso.*
 import androidx.test.espresso.action.ViewActions.*
 import androidx.test.espresso.assertion.ViewAssertions.*
 import androidx.test.espresso.matcher.ViewMatchers.*
-import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.platform.app.InstrumentationRegistry
-import io.cucumber.core.cli.Main
+import com.ani.bdddemo.MainActivity
+import com.ani.bdddemo.R
 import io.cucumber.java.en.Given
 import io.cucumber.java.en.Then
 import io.cucumber.java.en.When
 
-class LoginDetailsSteps {
+class LoginDetailsSteps(
+    val scenario: ActivityScenarioHolder
+) {
 
-    lateinit var  scenario : ActivityScenario<MainActivity>;
-
-    @When("I am on the login screen")
+    @Given("^I am on the login screen")
     fun loginScreen() {
-        scenario  = ActivityScenario.launch<MainActivity>(
-            Intent(
-                InstrumentationRegistry.getInstrumentation().context,
-                MainActivity::class.java
-            )
-        )
+       scenario.launch(
+           Intent(
+               InstrumentationRegistry.getInstrumentation().targetContext,
+               MainActivity::class.java
+           )
+       )
     }
 
-    @When("I enter email \"([^\"]*)\"$")
+    @When("^I enter email \"([^\"]*)\"$")
     fun enterEmail(email: String) {
         onView(withId(R.id.editTextText)).perform(typeText(email))
     }

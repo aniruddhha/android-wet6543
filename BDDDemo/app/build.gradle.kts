@@ -16,8 +16,8 @@ android {
 
 //        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
-        testApplicationId = "com.ani.bdddemo"
-        testInstrumentationRunner = "com.ani.bdddemo.BddRunner"
+//        testApplicationId = "com.ani.bdddemo.test"
+        testInstrumentationRunner = "io.cucumber.android.runner.CucumberAndroidJUnitRunner"
     }
 
     buildTypes {
@@ -51,4 +51,10 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 
     androidTestImplementation ("io.cucumber:cucumber-android:7.14.0") // Cucumber Android
+    androidTestImplementation ("io.cucumber:cucumber-picocontainer:7.14.0")
+    androidTestImplementation ("androidx.test:runner:1.4.0")
+//    androidTestImplementation ("androidx.test.uiautomator:uiautomator:2.2.0")
+
+
+//    androidTestUtil ("androidx.test:orchestrator:1.4.2")
 }
